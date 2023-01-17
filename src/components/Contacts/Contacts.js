@@ -3,22 +3,16 @@ import { ContactItem } from './ContactItem';
 import { InnerWrap } from '../Form/Form.styled';
 import { ContactList, Item } from './Contacts.styled';
 import { useSelector } from 'react-redux';
-import { getFilter } from 'components/redux/selectors';
-import { getContacts } from 'components/redux/selectors';
-export const Contacts = () => {
-  let { contacts } = useSelector(getContacts);
-  let filter = useSelector(getFilter);
+import { getVisibleContacts } from 'components/redux/selectors';
 
-  if (filter) {
-    contacts = contacts.filter(item =>
-      item.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }
+export const Contacts = () => {
+  const visibleContacts = useSelector(getVisibleContacts);
+  console.log('visibleContacts', visibleContacts);
 
   return (
     <InnerWrap>
       <ContactList>
-        {contacts.map(item => (
+        {visibleContacts.map(item => (
           <Item key={item.id}>
             <ContactItem contact={item} />
           </Item>

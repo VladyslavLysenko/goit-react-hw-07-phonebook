@@ -16,4 +16,3 @@ const filtersSlice = createSlice({
 // Експортуємо генератори екшенів та редюсер
 export const { setFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
-

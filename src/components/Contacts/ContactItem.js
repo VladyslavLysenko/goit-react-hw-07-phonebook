@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContactBtn } from './Contacts.styled';
+import { ContactBtn,Wrapper } from './Contacts.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'components/redux/operations';
-export const ContactItem = ({ contact: { id, name, number } }) => {
+export const ContactItem = ({ contact: { id, name, phone } }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(id));
 
   return (
     <>
-      <span>
-        {name}:{number}
-      </span>
-      <ContactBtn type="button" onClick={handleDelete}>
-        Delete
-      </ContactBtn>
+      <Wrapper>
+        <span>
+          {name}:{phone}
+        </span>
+        <ContactBtn type="button" onClick={handleDelete}>
+          Delete
+        </ContactBtn>
+      </Wrapper>
     </>
   );
 };

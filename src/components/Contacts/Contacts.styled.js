@@ -4,11 +4,20 @@ export const ContactList = styled.ul`
   font: normal 20px 'Bitter', serif;
   color: #2a88ad;
   margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap:10px;
 `;
 
 export const Item = styled.li`
-  display: 'flex';
-  gap: 10px;
+ 
+`;
+
+export const Wrapper = styled.div`
+  ${'' /* display: 'flex'; */}
+ 
 `;
 
 export const ContactBtn = styled.button`
@@ -24,6 +33,6 @@ export const ContactBtn = styled.button`
   -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   border: 1px solid #257c9e;
-  font-size: 10px;
+  font-size: 8px;
   margin-left: 15px;
 `;

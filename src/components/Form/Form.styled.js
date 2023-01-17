@@ -14,7 +14,7 @@ export const CommonBox = styled.div`
 `;
 
 export const InnerWrap = styled.div`
-  padding: 30px;
+  padding: 5px;
   background: #f8f8f8;
   border-radius: 6px;
   margin-bottom: 15px;
