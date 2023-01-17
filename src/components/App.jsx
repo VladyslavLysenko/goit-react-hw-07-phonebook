@@ -5,15 +5,20 @@ import Filter from './Filter/Filter';
 import { GlobalStyle } from '../GlobalStyle';
 import { CommonBox } from './Form/Form.styled';
 
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTasks } from 'redux/operations';
-import { getTasks } from 'redux/selectors';
-import { getContacts } from './redux/contactsSlice';
+import { fetchContacts } from './redux/operations';
+import { getError, getIsLoading } from './redux/selectors';
+
 
 export function App() {
   const dispatch = useDispatch();
-    const { contacts, isLoading, error } = useSelector(getContacts);
+   const isLoading = useSelector(getIsLoading);
+   const error = useSelector(getError);
+    useEffect(() => {
+      dispatch(fetchContacts());
+    }, [dispatch]);
+
   return (
     <div>
       <CommonBox>
@@ -24,7 +29,7 @@ export function App() {
       <CommonBox>
         <Section title="Contacts">
           <Filter />
-
+          {isLoading && !error && <b>Request in progress...</b>}
           <Contacts />
         </Section>
       </CommonBox>

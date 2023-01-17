@@ -3,8 +3,8 @@ import { ContactItem } from './ContactItem';
 import { InnerWrap } from '../Form/Form.styled';
 import { ContactList, Item } from './Contacts.styled';
 import { useSelector } from 'react-redux';
-import { getFilter } from 'components/redux/filterSlice';
-import { getContacts } from 'components/redux/contactsSlice';
+import { getFilter } from 'components/redux/selectors';
+import { getContacts } from 'components/redux/selectors';
 export const Contacts = () => {
   let { contacts } = useSelector(getContacts);
   let filter = useSelector(getFilter);
